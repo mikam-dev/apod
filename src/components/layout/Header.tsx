@@ -8,7 +8,7 @@ import navLinks from './menuItems'
 export function Header() {
 
 	return (
-		<header className='fixed w-full min-h-[8svh] h-fit py-1 px-4 bg-background shadow text-foreground flex items-center justify-center'>
+		<header className='fixed w-full min-h-fit h-[8svh] max-h-24 py-1 px-4 bg-background shadow text-foreground flex items-center justify-center'>
 			<div className="w-full max-w-7xl mx-2 flex justify-between items-center">
 
 				<div className="flex mr-6 justify-around items-center">
