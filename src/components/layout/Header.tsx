@@ -13,7 +13,7 @@ export function Header() {
 
 				<div className="flex mr-6 justify-around items-center">
 					<div className="ml-2">
-						<Link href={"https://mikam.dev"}>
+						<Link href={"/"}>
 							<Image src={"/logo.png"} alt="logo" width={96} height={96} className='h-auto min-w-10 w-10' />
 						</Link>
 					</div>
