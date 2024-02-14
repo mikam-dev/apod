@@ -1,4 +1,3 @@
-import Section from '@/components/layout/Section';
 import { getImage } from '@/lib/utils';
 import { format, parseISO } from 'date-fns';
 import Image from 'next/image';
@@ -8,13 +7,39 @@ export default async function APODPage({ params }: { params: { date: string } })
 	const image: APODImage = await getImage(date);
 
 	return (
-		<Section>
-			<div className="w-full h-auto flex flex-col items-center justify-center space-y-4">
-				<h1 className="text-4xl font-bold">{image.title}</h1>
-				<h2 className="text-2xl font-semibold">{format(parseISO(image.date), 'MMMM dd, yyyy')}</h2>
-				<Image src={image.url} alt={image.title} width={600} height={400} className="w-full h-auto rounded-lg" />
-				<p className="w-full max-w-2xl text-lg">{image.explanation}</p>
+		<main className="flex flex-col items-center justify-between bg-secondary min-h-[100vh] h-fit">
+			<div className="w-full max-w-6xl h-auto flex flex-col bg-muted bg-opacity-60 py-4 items-center justify-start">
+				{image.media_type === 'video' && (
+					<iframe
+						width={560}
+						height={315}
+						src={image.url}
+						title="YouTube video player"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						allowFullScreen
+						className={`w-full max-w-xl mb-2 rounded-xl`}></iframe>
+				)}
+				{image.media_type === 'image' && (
+					<Image
+						src={image.url}
+						alt="Astronomy picture of the day"
+						width={800}
+						height={450}
+						priority
+						className={`w-full max-w-4xl h-auto mb-2 p-4 rounded-3xl`}
+					/>
+				)}
+				{image.copyright && (
+					<caption className={`font-extralight text-sm mb-2 py-2`}>
+						&copy; {image.copyright}
+					</caption>
+				)}
+				<h1 className="w-full p-2 pb-4 bg-primary text-primary-foreground text-4xl font-bold text-center">{image.title}</h1>
+				<h2 className="w-full p-2 bg-accent text-accent-foreground text-lg font-semibold text-center">{format(parseISO(image.date), 'MMMM dd, yyyy')}</h2>
+				<div className="w-full p-4 flex flex-col justify-start items-center text-lg text-foreground">
+					<p className="w-full max-w-4xl">{image.explanation}</p>
+				</div>
 			</div>
-		</Section>
+		</main>
 	)
 }
