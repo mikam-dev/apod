@@ -8,19 +8,8 @@ import Section from '../layout/Section';
 import { Button } from '../ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card';
 import { DatePicker } from '../ui/date-picker';
+import { LoadingIcon } from '../ui/icons';
 import { Skeleton } from '../ui/skeleton';
-
-type APODImage = {
-	title: string,
-	date: string,
-	url: string,
-	hdurl?: string,
-	media_type: "image" | "video",
-	explanation: string,
-	thumbnail_url?: string,
-	copyright?: string,
-	service_version: string,
-}
 
 export default function APOD() {
 	const [isLoading, setIsLoading] = useState(true);
@@ -36,10 +25,7 @@ export default function APOD() {
 
 	if (!image) return (
 		<div className="w-full h-[92vh] flex flex-col items-center justify-center bg-gradient-to-b from-background to-muted md:bg-gradient-to-r">
-			<svg className="animate-spin h-12 w-12 text-foreground" viewBox="0 0 24 24">
-				<circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-				<path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
-			</svg>
+			<LoadingIcon />
 		</div>
 	)
 

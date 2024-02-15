@@ -1,7 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	images: {
-		domains: ['apod.nasa.gov', 'www.youtube.com', 'img.youtube.com', 'i.ytimg.com', '*.nasa.gov']
+		remotePatterns: [
+			{ hostname: 'apod.nasa.gov' },
+			{ hostname: '**.nasa.gov' },
+			{ hostname: 'youtube.com' },
+			{ hostname: 'img.youtube.com' },
+			{ hostname: 'i.ytimg.com' },
+			{
+				protocol: 'http',
+				hostname: 'localhost'
+			}
+		]
 	}
 }
 
