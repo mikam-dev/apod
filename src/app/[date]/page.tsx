@@ -9,45 +9,49 @@ export default async function APODPage({ params }: { params: { date: string } })
 	const image: APODImage = await getImage(date);
 
 	return (
-		<main className="flex flex-col items-center justify-between bg-secondary min-h-[100vh] h-fit">
-			<div className="w-full max-w-6xl h-auto flex flex-col bg-muted pb-4 items-center justify-start">
+		<main className="flex flex-col items-center justify-between bg-muted min-h-[100vh] h-fit">
+			<div className="w-full max-w-5xl h-auto flex flex-col bg-muted pb-4 items-center justify-start">
 				<h1 className="w-full p-2 pb-4 bg-primary text-primary-foreground text-4xl font-bold text-center">{image.title}</h1>
 				<h2 className="w-full p-2 bg-accent text-accent-foreground text-lg font-semibold text-center">{format(parseISO(image.date), 'MMMM dd, yyyy')}</h2>
-				{image.media_type === 'video' && (
-					<iframe
-						width={560}
-						height={315}
-						src={image.url}
-						title="YouTube video player"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-						allowFullScreen
-						className={`w-full max-w-4xl p-6 pt-8 rounded-xl`}></iframe>
-				)}
-				{image.media_type === 'image' && (
-					<Image
-						src={image.url}
-						alt="Astronomy picture of the day"
-						width={800}
-						height={450}
-						priority
-						className={`w-full max-w-4xl h-auto p-6 pt-8 rounded-3xl`}
-					/>
-				)}
+				<div className="w-full max-w-5xl flex flex-col items-center bg-popover p-4 pt-8">
+					{image.media_type === 'video' && (
+						<iframe
+							width={560}
+							height={315}
+							src={image.url}
+							title="YouTube video player"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							allowFullScreen
+							className={`w-full h-auto max-w-5xl rounded-xl`}></iframe>
+					)}
+					{image.media_type === 'image' && (
+						<Image
+							src={image.url}
+							alt="Astronomy picture of the day"
+							width={800}
+							height={450}
+							priority
+							className={`w-full h-auto max-w-5xl rounded-3xl`}
+						/>
+					)}
+				</div>
 				{image.copyright && (
-					<caption className={`font-extralight text-sm mb-2`}>
+					<caption className={`w-full max-w-5xl bg-popover text-popover-foreground font-extralight text-sm py-1 mb-2 md:rounded-b-full`}>
 						&copy; {image.copyright}
 					</caption>
 				)}
 				<div className="w-full p-4 flex flex-col justify-start items-center text-lg text-foreground">
-					<p className="w-full max-w-4xl">{image.explanation}</p>
+					<p className="w-full px-2 max-w-4xl">{image.explanation}</p>
 				</div>
 				<div className="w-full p-4 space-x-2 flex justify-center items-center">
 					<Link href={`/`}>
-						<Button variant="default">Go Back</Button>
+						<Button variant="outline">Go Back</Button>
 					</Link>
-					<Link href={image.hdurl || image.url}>
-						<Button variant="outline">View in high resolution</Button>
-					</Link>
+					{(image.media_type === 'image') && (
+						<Link href={image.hdurl || image.url}>
+							<Button variant="default">View Image</Button>
+						</Link>
+					)}
 				</div>
 			</div>
 		</main>

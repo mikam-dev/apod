@@ -99,11 +99,13 @@ export default function APOD() {
 							<CardContent>{image.explanation}</CardContent>
 							<CardFooter className="w-full space-x-2 flex justify-start items-center">
 								<Link href={`/${image.date}`}>
-									<Button variant="default">View page</Button>
+									<Button variant="outline">View page</Button>
 								</Link>
-								<Link href={image.hdurl || image.url}>
-									<Button variant="outline">View in high resolution</Button>
-								</Link>
+								{(image.media_type === 'image') && (
+									<Link href={image.hdurl || image.url}>
+										<Button variant="default">View Image</Button>
+									</Link>
+								)}
 							</CardFooter>
 						</Card>
 					)}
