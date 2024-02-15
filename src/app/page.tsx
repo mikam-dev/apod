@@ -1,11 +1,11 @@
 import APOD from "@/components/content/APOD";
-import { getImage, getImages } from "@/lib/utils";
+import { getImages } from "@/lib/utils";
 import { format, parseISO } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function Home() {
-  const image: APODImage = await getImage();
+  // const image: APODImage = await getImage();
   const images: APODImage[] = await getImages();
 
   return (

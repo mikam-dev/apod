@@ -1,6 +1,8 @@
+import { Button } from '@/components/ui/button';
 import { getImage } from '@/lib/utils';
 import { format, parseISO } from 'date-fns';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default async function APODPage({ params }: { params: { date: string } }) {
 	const { date } = params;
@@ -8,7 +10,9 @@ export default async function APODPage({ params }: { params: { date: string } })
 
 	return (
 		<main className="flex flex-col items-center justify-between bg-secondary min-h-[100vh] h-fit">
-			<div className="w-full max-w-6xl h-auto flex flex-col bg-muted bg-opacity-60 py-4 items-center justify-start">
+			<div className="w-full max-w-6xl h-auto flex flex-col bg-muted pb-4 items-center justify-start">
+				<h1 className="w-full p-2 pb-4 bg-primary text-primary-foreground text-4xl font-bold text-center">{image.title}</h1>
+				<h2 className="w-full p-2 bg-accent text-accent-foreground text-lg font-semibold text-center">{format(parseISO(image.date), 'MMMM dd, yyyy')}</h2>
 				{image.media_type === 'video' && (
 					<iframe
 						width={560}
@@ -17,7 +21,7 @@ export default async function APODPage({ params }: { params: { date: string } })
 						title="YouTube video player"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 						allowFullScreen
-						className={`w-full max-w-xl mb-2 rounded-xl`}></iframe>
+						className={`w-full max-w-4xl p-6 pt-8 rounded-xl`}></iframe>
 				)}
 				{image.media_type === 'image' && (
 					<Image
@@ -26,18 +30,24 @@ export default async function APODPage({ params }: { params: { date: string } })
 						width={800}
 						height={450}
 						priority
-						className={`w-full max-w-4xl h-auto mb-2 p-4 rounded-3xl`}
+						className={`w-full max-w-4xl h-auto p-6 pt-8 rounded-3xl`}
 					/>
 				)}
 				{image.copyright && (
-					<caption className={`font-extralight text-sm mb-2 py-2`}>
+					<caption className={`font-extralight text-sm mb-2`}>
 						&copy; {image.copyright}
 					</caption>
 				)}
-				<h1 className="w-full p-2 pb-4 bg-primary text-primary-foreground text-4xl font-bold text-center">{image.title}</h1>
-				<h2 className="w-full p-2 bg-accent text-accent-foreground text-lg font-semibold text-center">{format(parseISO(image.date), 'MMMM dd, yyyy')}</h2>
 				<div className="w-full p-4 flex flex-col justify-start items-center text-lg text-foreground">
 					<p className="w-full max-w-4xl">{image.explanation}</p>
+				</div>
+				<div className="w-full p-4 space-x-2 flex justify-center items-center">
+					<Link href={`/`}>
+						<Button variant="default">Go Back</Button>
+					</Link>
+					<Link href={image.hdurl || image.url}>
+						<Button variant="outline">View in high resolution</Button>
+					</Link>
 				</div>
 			</div>
 		</main>

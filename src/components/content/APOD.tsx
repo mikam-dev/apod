@@ -2,9 +2,11 @@
 import { getImage } from '@/lib/utils';
 import { format, parseISO } from "date-fns";
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Section from '../layout/Section';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
+import { Button } from '../ui/button';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card';
 import { DatePicker } from '../ui/date-picker';
 import { Skeleton } from '../ui/skeleton';
 
@@ -95,10 +97,18 @@ export default function APOD() {
 								</CardDescription>
 							</CardHeader>
 							<CardContent>{image.explanation}</CardContent>
+							<CardFooter className="w-full space-x-2 flex justify-start items-center">
+								<Link href={`/${image.date}`}>
+									<Button variant="default">View page</Button>
+								</Link>
+								<Link href={image.hdurl || image.url}>
+									<Button variant="outline">View in high resolution</Button>
+								</Link>
+							</CardFooter>
 						</Card>
 					)}
 				</div>
-			</Section>
+			</Section >
 		</>
 	)
 }
