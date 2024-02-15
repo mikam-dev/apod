@@ -33,7 +33,7 @@ export default async function Home() {
                   width={800}
                   height={450}
                   priority
-                  className={`w-full max-w-xl h-auto mb-2 rounded-3xl`}
+                  className={`w-full max-w-xl h-auto mb-2 rounded-xl`}
                 />
               )}
               <h3 className="text-xl font-bold my-4">{image.title}</h3>

@@ -97,7 +97,7 @@ export default function APOD() {
 								</CardDescription>
 							</CardHeader>
 							<CardContent>{image.explanation}</CardContent>
-							<CardFooter className="w-full space-x-2 flex justify-start items-center">
+							<CardFooter className="w-full space-x-2 flex justify-center items-center md:justify-start">
 								<Link href={`/${image.date}`}>
 									<Button variant="outline">View page</Button>
 								</Link>
