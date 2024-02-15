@@ -25,22 +25,7 @@ export const getImage = async (date?: string) => {
   }
 }
 
-export const getRandomImages = async () => {
-  const baseUrl = `https://api.nasa.gov/planetary/apod?api_key=${process.env.NEXT_PUBLIC_NASA_API_KEY}`;
-
-  try {
-    const images = await fetch(`${baseUrl}&count=12`, {
-      method: 'GET',
-      next: { revalidate: 600 }
-    }).then((images) => images.json());
-
-    return images;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-export const getImagesInRange = async (startDate?: string, endDate?: string) => {
+export const getImages = async (startDate?: string, endDate?: string) => {
   const baseUrl = `https://api.nasa.gov/planetary/apod?api_key=${process.env.NEXT_PUBLIC_NASA_API_KEY}`;
 
   if (!startDate || !endDate) {
@@ -57,7 +42,7 @@ export const getImagesInRange = async (startDate?: string, endDate?: string) => 
   }
 
   try {
-    const images = await fetch(`${baseUrl}&start_date=${startDate}&end_date=${endDate}`, {
+    const images = await fetch(`${baseUrl}&count=12`, {
       method: 'GET',
       next: { revalidate: 600 }
     }).then((images) => images.json());
