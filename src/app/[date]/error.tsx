@@ -1,12 +1,18 @@
 "use client"
+import Image from 'next/image';
 
-export default function ErrorPage() {
+export default function Error() {
 	return (
-		<div className="w-full h-[92vh] flex flex-col items-center justify-center bg-gradient-to-b from-background to-muted md:bg-gradient-to-r">
-			<svg className="animate-spin h-12 w-12 text-foreground" viewBox="0 0 24 24">
-				<circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-				<path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
-			</svg>
-		</div>
+		<main className="flex flex-col items-center justify-start pt-12 bg-muted min-h-[100vh] h-fit">
+			<Image
+				src="/location_search_re_ttoj.svg"
+				alt="404 Not Found"
+				width={400}
+				height={400}
+				priority
+				className="w-full max-w-lg h-auto"
+			/>
+			<p className="text-2xl p-2 mt-2 text-center">We searched the universe, but couldn&apos;t find a photo.</p>
+		</main>
 	)
 }

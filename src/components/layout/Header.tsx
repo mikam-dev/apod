@@ -14,7 +14,7 @@ export function Header() {
 				<div className="flex mr-6 justify-around items-center">
 					<div className="ml-2">
 						<Link href={"/"}>
-							<Image src={"/logo.png"} alt="logo" width={96} height={96} className='h-auto min-w-10 w-10' />
+							<Image src={"/fun-star.svg"} alt="logo" width={96} height={96} className='h-10 w-10' />
 						</Link>
 					</div>
 				</div>

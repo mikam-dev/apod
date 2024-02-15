@@ -26,13 +26,14 @@ export default function APOD() {
 	if (!image) return (
 		<div className="w-full h-[92vh] flex flex-col items-center justify-center bg-gradient-to-b from-background to-muted md:bg-gradient-to-r">
 			<LoadingIcon />
+			<p className="text-2xl p-2 mt-2 text-center animate-pulse">Searching...</p>
 		</div>
 	)
 
 	return (
 		<>
-			<span className="w-full min-h-fit px-8 flex flex-col items-center justify-center bg-gradient-to-b from-card to-background ">
-				<h2 className="font-extrabold text-3xl p-2 m-2 bg-gradient-to-b from-muted-foreground to-foreground inline-block text-transparent bg-clip-text sm:text-4xl md:text-5xl lg:text-6xl">Astronomy Picture of the Day
+			<span className="w-full min-h-fit pt-8 px-8 flex flex-col items-center justify-center bg-gradient-to-b from-card to-background ">
+				<h2 className="font-extrabold text-3xl text-center p-2 mb-2 bg-gradient-to-b from-muted-foreground to-foreground inline-block text-transparent bg-clip-text sm:text-4xl md:text-5xl lg:text-6xl">Astronomy Picture of the Day
 				</h2>
 
 				<DatePicker onDateChange={(date: string) => {
@@ -77,7 +78,7 @@ export default function APOD() {
 					{isLoading ? <Skeleton className="w-full max-w-xl min-h-[315px] mb-2 rounded-3xl md:h-[75vh]" /> : (
 						<Card className="border-none rounded-3xl">
 							<CardHeader>
-								<CardTitle className={`self-center sm:text-3xl md:self-start md:text-4xl lg:text-5xl`}>{image.title}</CardTitle>
+								<CardTitle className={`text-center sm:text-3xl md:text-start md:text-4xl lg:text-5xl`}>{image.title}</CardTitle>
 								<CardDescription className="self-center md:self-start">
 									{image.date && !isNaN(Date.parse(image.date)) ? format(parseISO(image.date), 'MMMM dd, yyyy') : 'Invalid date'}
 								</CardDescription>

@@ -35,7 +35,7 @@ export async function ImageGrid() {
 							)}
 							<h3 className="text-xl font-bold my-4">{image.title}</h3>
 							<p className="text-sm text-muted-foreground">{format(parseISO(image.date), 'MMMM dd, yyyy')}</p>
-							<p className="w-full max-h-[120px] text-wrap truncate ...">{image.explanation}</p>
+							<p className="w-full max-h-[120px] text-wrap truncate">{image.explanation}</p>
 						</div>
 					</Link>
 				))}
