@@ -6,6 +6,15 @@ export default async function APODPage({ params }: { params: { date: string } })
 	const { date } = params;
 	const image: APODImage = await getImage(date);
 
+	if (!image) return (
+		<div className="w-full h-[92vh] flex flex-col items-center justify-center bg-gradient-to-b from-background to-muted md:bg-gradient-to-r">
+			<svg className="animate-spin h-12 w-12 text-foreground" viewBox="0 0 24 24">
+				<circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+				<path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+			</svg>
+		</div>
+	)
+
 	return (
 		<main className="flex flex-col items-center justify-between bg-secondary min-h-[100vh] h-fit">
 			<div className="w-full max-w-6xl h-auto flex flex-col bg-muted bg-opacity-60 py-4 items-center justify-start">
