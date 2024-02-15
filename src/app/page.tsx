@@ -13,7 +13,7 @@ export default async function Home() {
       <APOD />
       <h2 className="font-semibold text-2xl mt-4">More Images</h2>
       <div className="w-full h-auto grid grid-flow-dense grid-cols-1 p-4 sm:p-6 md:p-8 md:grid-cols-2 lg:p-12 lg:grid-cols-3">
-        {images.map((image, index) => (
+        {images && images.map((image, index) => (
           <Link href={`/${image.date}`} key={index} passHref>
             <div className="w-full h-fit flex flex-col justify-start items-start space-y-2 p-4 rounded-lg hover:bg-secondary hover-text-secondary-foreground">
               {image.media_type === 'video' && (
