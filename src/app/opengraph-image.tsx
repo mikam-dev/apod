@@ -42,7 +42,7 @@ export default async function Image() {
 					alignItems: 'center',
 					justifyContent: 'center',
 				}}>
-					<img src={"/rocket.svg"} width={600} height={600} />
+					<img src={"https://apod.mikam.dev/rocket.svg"} width={600} height={600} />
 				</div>
 			</div>
 		),
