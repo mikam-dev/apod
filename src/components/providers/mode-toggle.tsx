@@ -9,7 +9,7 @@ export function ModeToggle() {
 	return (
 		<>
 			<Button
-				variant="outline"
+				variant="ghost"
 				size="icon"
 				className="px-4 py-2 md:ml-2"
 				onClick={() => {

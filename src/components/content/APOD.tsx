@@ -32,7 +32,7 @@ export default function APOD() {
 
 	return (
 		<>
-			<span className="w-full min-h-fit pt-8 px-8 flex flex-col items-center justify-center bg-gradient-to-b from-card to-background ">
+			<span className="w-full min-h-fit pt-4 px-4 flex flex-col items-center justify-center bg-gradient-to-b from-card to-background sm:pt-6 md:pt-8 xl:pt-12">
 				<h2 className="font-extrabold text-3xl text-center p-2 mb-2 bg-gradient-to-b from-muted-foreground to-foreground inline-block text-transparent bg-clip-text sm:text-4xl md:text-5xl lg:text-6xl">Astronomy Picture of the Day
 				</h2>
 

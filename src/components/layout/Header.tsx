@@ -11,10 +11,10 @@ export function Header() {
 		<header className='w-full min-h-[8svh] h-fit max-h-[100px] py-1 px-4 bg-background shadow text-foreground flex items-center justify-center'>
 			<div className="w-full max-w-7xl mx-2 flex justify-between items-center">
 
-				<div className="flex mr-6 justify-around items-center">
-					<div className="ml-2">
+				<div className="flex p-1 mr-6 justify-around items-center">
+					<div>
 						<Link href={"/"}>
-							<Image src={"/fun-star.svg"} alt="logo" width={96} height={96} className='h-10 w-10' />
+							<Image src={"/rocket.svg"} alt="logo" width={96} height={96} className='h-auto min-w-8 w-8' />
 						</Link>
 					</div>
 				</div>
@@ -29,8 +29,9 @@ export function Header() {
 					<div className="mx-2 flex items-center md:hidden">
 						<NavMenu />
 					</div>
-					<ModeToggle />
 				</div>
+
+				<ModeToggle />
 
 				<div className="hidden ml-2 justify-around items-center md:flex">
 					<Link href={"https://mikam.dev/contact"}>
