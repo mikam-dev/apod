@@ -1,14 +1,17 @@
 import { getImage } from "@/lib/utils";
+import { Inter } from "next/font/google";
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge'
 
-export const alt = 'About Acme'
+export const alt = 'Astronomy Picture of the Day'
 export const size = {
 	width: 1200,
 	height: 630,
 }
 export const contentType = 'image/png'
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default async function Image({ params }: { params: { date: string } }) {
 	const { date } = params;
@@ -18,6 +21,7 @@ export default async function Image({ params }: { params: { date: string } }) {
 		(
 			<div
 				style={{
+					fontFamily: inter + ', sans-serif',
 					fontSize: 48,
 					background: 'white',
 					width: '100%',
@@ -33,7 +37,6 @@ export default async function Image({ params }: { params: { date: string } }) {
 				{image.media_type === 'video' && (
 					<img src={image.thumbnail_url} alt={image.title} />
 				)}
-				<p>{image.title}</p>
 			</div>
 		),
 		{
