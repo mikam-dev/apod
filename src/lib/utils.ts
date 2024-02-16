@@ -29,7 +29,7 @@ export const getRandomImages = async () => {
   const baseUrl = `https://api.nasa.gov/planetary/apod?api_key=${process.env.NEXT_PUBLIC_NASA_API_KEY}`;
 
   try {
-    const images = await fetch(`${baseUrl}&count=12`, {
+    const images = await fetch(`${baseUrl}&count=18`, {
       method: 'GET',
       next: { revalidate: 600 }
     }).then((images) => images.json());

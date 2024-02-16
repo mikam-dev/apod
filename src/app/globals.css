@@ -13,13 +13,13 @@
     --popover: 214.3,31.8%,91.4%;  /* slate-200 */
     --popover-foreground: 217.2,32.6%,17.5%; /* slate-800 */
 
-    --border: 213.1,93.9%,67.8%; /* blue-400 */
-    --input: 213.1,93.9%,67.8%; /* blue-400 */
+    --border: 217.2,32.6%,17.5%; /* slate-800 */
+    --input: 215.3,25%,26.7%; /* slate-700 */
 
     --card: 210,40%,98%; /* slate-50 */
     --card-foreground: 217.2,32.6%,17.5%; /* slate-800 */
 
-    --primary: 213.1,93.9%,67.8%; /* blue-400 */
+    --primary: 217.2,91.2%,59.8%; /* blue-500 */
     --primary-foreground: 210,40%,96.1%;  /* slate-100 */
 
     --secondary: 210,40%,98%; /* slate-50 */
@@ -46,8 +46,8 @@
     --popover: 217.2,32.6%,17.5%; /* slate-800 */
     --popover-foreground: 210,40%,96.1%;  /* slate-100 */
 
-    --border: 217.2,91.2%,59.8%; /* blue-500 */
-    --input: 217.2,91.2%,59.8%; /* blue-500 */
+    --border: 210,40%,96.1%;  /* slate-100 */
+    --input: 215.4,16.3%,46.9%; /* slate-500 */
 
     --card: 215.3,25%,26.7%; /* slate-700 */
     --card-foreground: 210,40%,96.1%;  /* slate-100 */

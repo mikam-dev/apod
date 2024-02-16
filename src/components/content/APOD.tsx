@@ -85,14 +85,14 @@ export default function APOD() {
 							</CardHeader>
 							<CardContent>{image.explanation}</CardContent>
 							<CardFooter className="w-full space-x-2 flex justify-center items-center md:justify-start">
-								<Link href={`/${image.date}`}>
-									<Button variant="outline">View page</Button>
-								</Link>
 								{(image.media_type === 'image') && (
 									<Link href={image.hdurl || image.url}>
-										<Button variant="default">View Image</Button>
+										<Button variant="outline">View Image</Button>
 									</Link>
 								)}
+								<Link href={`/${image.date}`}>
+									<Button variant="default">View page</Button>
+								</Link>
 							</CardFooter>
 						</Card>
 					)}

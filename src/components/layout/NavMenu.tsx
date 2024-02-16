@@ -1,5 +1,4 @@
 "use client"
-import Link from "next/link"
 import * as React from "react"
 
 import {
@@ -11,7 +10,6 @@ import {
 	NavigationMenuTrigger
 } from "@/components/ui/navigation-menu"
 import { cn } from "@/lib/utils"
-import { Button } from "../ui/button"
 import navLinks from "./menuItems"
 
 export function NavMenu() {
@@ -22,7 +20,7 @@ export function NavMenu() {
 				<NavigationMenuItem>
 					<NavigationMenuTrigger>Menu</NavigationMenuTrigger>
 					<NavigationMenuContent>
-						<ul className="grid w-full gap-3 p-4">
+						<ul className="grid w-full gap-2 p-4">
 							{navLinks.map((link: NavLink) => (
 								<ListItem
 									key={link.order}
@@ -32,9 +30,9 @@ export function NavMenu() {
 									{link.name}
 								</ListItem>
 							))}
-							<Link href={"/contact"}>
+							{/* <Link href={"/contact"}>
 								<Button className="bg-primary max-h-12 mx-2 px-4 py-2 rounded-md">Contact</Button>
-							</Link>
+							</Link> */}
 						</ul>
 					</NavigationMenuContent>
 				</NavigationMenuItem>
@@ -58,8 +56,8 @@ const ListItem = React.forwardRef<
 					)}
 					{...props}
 				>
-					<div className="text-sm font-medium leading-none">{title}</div>
-					<p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+					{/* <div className="text-sm font-medium leading-none">{title}</div> */}
+					<p className="line-clamp-2 text-sm font-medium leading-snug">
 						{children}
 					</p>
 				</a>

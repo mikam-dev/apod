@@ -45,11 +45,11 @@ export default async function Page({ params }: { params: { date: string } }) {
 				</div>
 				<div className="w-full p-4 space-x-2 flex justify-center items-center">
 					<Link href={`/`}>
-						<Button variant="outline">Go Back</Button>
+						<Button variant="default">Go Back</Button>
 					</Link>
 					{(image.media_type === 'image') && (
 						<Link href={image.hdurl || image.url}>
-							<Button variant="default">View Image</Button>
+							<Button variant="outline">View Image</Button>
 						</Link>
 					)}
 				</div>
