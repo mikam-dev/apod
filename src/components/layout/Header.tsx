@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ModeToggle } from '../providers/mode-toggle'
-import { Button } from '../ui/button'
+// import { Button } from '../ui/button'
 import NavMenu from './NavMenu'
 import navLinks from './menuItems'
 
@@ -33,11 +33,11 @@ export function Header() {
 
 				<ModeToggle />
 
-				<div className="hidden ml-2 justify-around items-center md:flex">
+				{/* <div className="hidden ml-2 justify-around items-center md:flex">
 					<Link href={"https://mikam.dev/contact"}>
 						<Button className="bg-primary max-h-12 mx-2 px-4 py-2 rounded-md">Contact</Button>
 					</Link>
-				</div>
+				</div> */}
 
 			</div>
 		</header>

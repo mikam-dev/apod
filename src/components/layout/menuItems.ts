@@ -1,12 +1,12 @@
 export const navLinks: NavLink[] = [
 	{
-		name: `Home`,
-		link: `/`,
+		name: `Today's APOD`,
+		link: `/${new Date().toISOString().split('T')[0]}`,
 		order: 1
 	},
 	{
-		name: `Today's APOD`,
-		link: `/${new Date().toISOString().split('T')[0]}`,
+		name: `Home`,
+		link: `/`,
 		order: 2
 	},
 ]
