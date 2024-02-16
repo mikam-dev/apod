@@ -26,7 +26,7 @@ export default async function Image() {
 				<div style={{
 					background: 'black',
 					color: 'white',
-					width: '38%',
+					width: '400px',
 					height: '100%',
 					padding: '36px',
 					display: 'flex',
@@ -35,14 +35,15 @@ export default async function Image() {
 					textAlign: 'right'
 				}}>Astronomy Picture of the Day</div>
 				<div style={{
-					background: `url(/rocket.svg) no-repeat fixed center;`,
-					width: '62%',
+					width: '800px',
 					height: '100%',
 					padding: '36px',
 					display: 'flex',
 					alignItems: 'center',
 					justifyContent: 'center',
-				}}></div>
+				}}>
+					<img src={"/rocket.svg"} width={600} height={600} />
+				</div>
 			</div>
 		),
 		{

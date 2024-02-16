@@ -29,7 +29,7 @@ export default async function Image({ params }: { params: { date: string } }) {
 				<div style={{
 					background: 'black',
 					color: 'white',
-					width: '38%',
+					width: '400px',
 					height: '100%',
 					padding: '36px',
 					display: 'flex',
@@ -38,7 +38,7 @@ export default async function Image({ params }: { params: { date: string } }) {
 					textAlign: 'right'
 				}}>{image.title}</div>
 				<div style={{
-					width: '62%',
+					width: '800px',
 					height: '100%',
 					display: 'flex',
 					alignItems: 'center',
