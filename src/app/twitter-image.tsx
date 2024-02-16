@@ -1,5 +1,3 @@
-import { getImage } from "@/lib/utils";
-import { Inter } from "next/font/google";
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge'
@@ -11,31 +9,40 @@ export const size = {
 }
 export const contentType = 'image/png'
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default async function Image() {
-	const image: APODImage = await getImage();
 
 	return new ImageResponse(
 		(
 			<div
 				style={{
-					fontFamily: inter + ', sans-serif',
+					fontFamily: 'Inter',
 					fontSize: 48,
-					background: 'white',
 					width: '100%',
 					height: '100%',
 					display: 'flex',
 					alignItems: 'center',
-					justifyContent: 'center',
 				}}
 			>
-				{image.media_type === 'image' && (
-					<img src={image.url} alt={image.title} />
-				)}
-				{image.media_type === 'video' && (
-					<img src={image.thumbnail_url} alt={image.title} />
-				)}
+				<div style={{
+					background: 'black',
+					color: 'white',
+					width: '38%',
+					height: '100%',
+					padding: '36px',
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
+					textAlign: 'right'
+				}}>Astronomy Picture of the Day</div>
+				<div style={{
+					background: `url(/rocket.svg) no-repeat fixed center;`,
+					width: '62%',
+					height: '100%',
+					padding: '36px',
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
+				}}></div>
 			</div>
 		),
 		{
