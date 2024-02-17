@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-export const runtime = 'edge'
+// export const runtime = 'edge'
 
 export const alt = 'Astronomy Picture of the Day'
 export const size = {
@@ -13,37 +13,43 @@ export default async function Image() {
 
 	return new ImageResponse(
 		(
-			<div
-				style={{
-					fontFamily: 'Inter',
-					fontSize: 48,
-					background: 'black',
-					color: 'white',
-					width: '100%',
-					height: '100%',
-					display: 'flex',
-					alignItems: 'center',
-				}}
-			>
+			<div style={{
+				fontFamily: 'Inter',
+				fontSize: 48,
+				fontWeight: 'bold',
+				background: '#171717',
+				color: '#fafafa',
+				width: '100%',
+				height: '100%',
+				display: 'flex',
+				alignItems: 'center',
+			}}>
 				<div style={{
-					width: '400px',
+					width: '460px',
 					height: '100%',
-					padding: '48px',
+					padding: '50px',
 					display: 'flex',
 					alignItems: 'center',
 					justifyContent: 'center',
 					textAlign: 'right'
-				}}>Astronomy Picture of the Day</div>
+				}}>
+					<span>Astronomy Picture of the Day</span>
+				</div>
 				<div style={{
-					width: '800px',
+					width: '740px',
 					height: '100%',
-					padding: '48px',
+					padding: '50px',
 					display: 'flex',
 					alignItems: 'center',
 					justifyContent: 'center',
 				}}>
 					{/* eslint-disable-next-line */}
-					<img src={"https://apod.mikam.dev/rocket.svg"} width={540} height={540} alt="Astronomy Picture of the Day" />
+					<img
+						src={"https://apod.mikam.dev/rocket.svg"}
+						width={500}
+						height={500}
+						alt="Astronomy Picture of the Day"
+					/>
 				</div>
 			</div>
 		),

@@ -1,9 +1,8 @@
-"use client"
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Error() {
+export default function NotFound() {
 	return (
 		<main className="flex flex-col items-center justify-start pt-12 bg-muted min-h-[100vh] h-fit space-y-2">
 			<div className="p-2">

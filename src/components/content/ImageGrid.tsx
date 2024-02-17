@@ -1,10 +1,8 @@
-import { getRandomImages } from "@/lib/utils";
 import { format, parseISO } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 
-export async function ImageGrid() {
-	const images: APODImage[] = await getRandomImages();
+export async function ImageGrid({ images }: { images: APODImage[] }) {
 
 	return (
 		<>

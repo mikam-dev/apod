@@ -1,5 +1,5 @@
+import { getImage } from '../actions';
 import { Button } from '@/components/ui/button';
-import { getImage } from '@/lib/utils';
 import { format, parseISO } from 'date-fns';
 import Image from 'next/image';
 import Link from 'next/link';

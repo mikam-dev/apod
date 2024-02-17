@@ -1,5 +1,5 @@
 "use client"
-import { getImage } from '@/lib/utils';
+import { getImage } from "@/app/actions";
 import { format, parseISO } from "date-fns";
 import Image from 'next/image';
 import Link from 'next/link';
@@ -11,9 +11,9 @@ import { DatePicker } from '../ui/date-picker';
 import { LoadingIcon } from '../ui/icons';
 import { Skeleton } from '../ui/skeleton';
 
-export default function APOD() {
+export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 	const [isLoading, setIsLoading] = useState(true);
-	const [image, setImage] = useState<APODImage>();
+	const [image, setImage] = useState<APODImage>(defaultImage);
 	const [date, setDate] = useState(format(new Date(), 'yyyy-MM-dd'));
 
 	useEffect(() => {
