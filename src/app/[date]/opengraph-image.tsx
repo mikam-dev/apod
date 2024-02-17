@@ -30,7 +30,7 @@ export default async function Image({ params }: { params: { date: string } }) {
 					display: 'flex',
 					flexDirection: 'column',
 					alignItems: 'center',
-					justifyContent: 'space-evenly',
+					justifyContent: 'center',
 					textAlign: 'right'
 				}}>
 					<span style={{
