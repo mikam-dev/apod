@@ -33,7 +33,7 @@ export default async function Image({ params }: { params: { date: string } }) {
 					alignItems: 'flex-end',
 					justifyContent: 'space-around'
 				}}>
-					<span style={{
+					<div style={{
 						width: '100%',
 						fontSize: 48,
 						fontWeight: 'bold',
@@ -41,8 +41,8 @@ export default async function Image({ params }: { params: { date: string } }) {
 						textAlign: 'right'
 					}}>
 						{image.title}
-					</span>
-					<span style={{
+					</div>
+					<div style={{
 						width: '100%',
 						fontSize: 36,
 						fontWeight: 'normal',
@@ -50,7 +50,7 @@ export default async function Image({ params }: { params: { date: string } }) {
 						textAlign: 'right'
 					}}>
 						{format(parseISO(image.date), 'MMMM dd, yyyy')}
-					</span>
+					</div>
 				</div>
 				<div style={{
 					width: '740px',
