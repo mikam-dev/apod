@@ -1,7 +1,9 @@
+import { format } from "date-fns";
+
 export const navLinks: NavLink[] = [
 	{
 		name: `Today's APOD`,
-		link: `/${new Date().toISOString().split('T')[0]}`,
+		link: `/${format(new Date(), 'yyyy-MM-dd')}`,
 		order: 1
 	},
 	{
