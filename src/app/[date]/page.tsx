@@ -1,8 +1,8 @@
-import { getImage } from '../actions';
 import { Button } from '@/components/ui/button';
 import { format, parseISO } from 'date-fns';
 import Image from 'next/image';
 import Link from 'next/link';
+import { getImage } from '../actions';
 
 export default async function Page({ params }: { params: { date: string } }) {
 	const { date } = params;
