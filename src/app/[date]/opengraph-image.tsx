@@ -30,7 +30,7 @@ export default async function Image({ params }: { params: { date: string } }) {
 					padding: '48px',
 					display: 'flex',
 					flexDirection: 'column',
-					alignItems: 'flex-end',
+					alignItems: 'center',
 					justifyContent: 'space-around'
 				}}>
 					<div style={{
