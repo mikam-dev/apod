@@ -17,6 +17,8 @@ export default async function Image() {
 				style={{
 					fontFamily: 'Inter',
 					fontSize: 48,
+					background: 'black',
+					color: 'white',
 					width: '100%',
 					height: '100%',
 					display: 'flex',
@@ -24,8 +26,6 @@ export default async function Image() {
 				}}
 			>
 				<div style={{
-					background: 'black',
-					color: 'white',
 					width: '400px',
 					height: '100%',
 					padding: '36px',
@@ -42,7 +42,7 @@ export default async function Image() {
 					alignItems: 'center',
 					justifyContent: 'center',
 				}}>
-					<img src={"https://apod.mikam.dev/rocket.svg"} width={600} height={600} />
+					<img src={"https://apod.mikam.dev/rocket.svg"} width={540} height={540} />
 				</div>
 			</div>
 		),
