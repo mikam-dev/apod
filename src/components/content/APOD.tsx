@@ -8,7 +8,6 @@ import Section from '../layout/Section';
 import { Button } from '../ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card';
 import { DatePicker } from '../ui/date-picker';
-import { LoadingIcon } from '../ui/icons';
 import { Skeleton } from '../ui/skeleton';
 
 export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
@@ -22,13 +21,6 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 			setImage(image);
 		})
 	}, [date])
-
-	if (!image) return (
-		<div className="w-full h-[92vh] flex flex-col items-center justify-center bg-gradient-to-b from-background to-muted md:bg-gradient-to-r">
-			<LoadingIcon />
-			<p className="text-2xl p-2 mt-2 text-center animate-pulse">Searching...</p>
-		</div>
-	)
 
 	return (
 		<>
