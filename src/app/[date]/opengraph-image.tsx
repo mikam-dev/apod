@@ -1,5 +1,5 @@
-import { getImage } from "../actions";
 import { ImageResponse } from 'next/og';
+import { getImage } from "../actions";
 
 export const runtime = 'edge'
 
@@ -17,7 +17,7 @@ export default async function Image({ params }: { params: { date: string } }) {
 	return new ImageResponse(
 		(
 			<div style={{
-				background: '#171717',
+				background: '#0f172a',
 				fontFamily: 'Inter',
 				width: '100%',
 				height: '100%',
@@ -37,14 +37,14 @@ export default async function Image({ params }: { params: { date: string } }) {
 					<span style={{
 						fontSize: 48,
 						fontWeight: 'bold',
-						color: '#fafafa'
+						color: '#f8fafc'
 					}}>
 						{image.title}
 					</span>
 					<span style={{
 						fontSize: 36,
 						fontWeight: 'normal',
-						color: '#d4d4d4'
+						color: '#e2e8f0'
 					}}>
 						{image.date}
 					</span>
