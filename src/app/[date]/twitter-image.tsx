@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og';
+import { format, parseISO } from "date-fns";
 import { getImage } from "../actions";
 
 export const runtime = 'edge'
@@ -29,7 +30,7 @@ export default async function Image({ params }: { params: { date: string } }) {
 					padding: '48px',
 					display: 'flex',
 					flexDirection: 'column',
-					alignItems: 'center',
+					alignItems: 'flex-end',
 					justifyContent: 'space-around'
 				}}>
 					<span style={{
@@ -48,7 +49,7 @@ export default async function Image({ params }: { params: { date: string } }) {
 						color: '#e2e8f0',
 						textAlign: 'right'
 					}}>
-						{image.date}
+						{format(parseISO(image.date), 'MMMM dd, yyyy')}
 					</span>
 				</div>
 				<div style={{
