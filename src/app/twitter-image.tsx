@@ -14,7 +14,6 @@ export default async function Image() {
 	return new ImageResponse(
 		(
 			<div style={{
-				fontFamily: 'Inter',
 				fontSize: 48,
 				fontWeight: 'bold',
 				background: '#0f172a',

@@ -18,7 +18,6 @@ export default async function Image({ params }: { params: { date: string } }) {
 		(
 			<div style={{
 				background: '#0f172a',
-				fontFamily: 'Inter',
 				width: '100%',
 				height: '100%',
 				display: 'flex',
