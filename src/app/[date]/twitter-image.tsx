@@ -30,20 +30,23 @@ export default async function Image({ params }: { params: { date: string } }) {
 					display: 'flex',
 					flexDirection: 'column',
 					alignItems: 'center',
-					justifyContent: 'center',
-					textAlign: 'right'
+					justifyContent: 'space-around'
 				}}>
 					<span style={{
+						width: '100%',
 						fontSize: 48,
 						fontWeight: 'bold',
-						color: '#f8fafc'
+						color: '#f8fafc',
+						textAlign: 'right'
 					}}>
 						{image.title}
 					</span>
 					<span style={{
+						width: '100%',
 						fontSize: 36,
 						fontWeight: 'normal',
-						color: '#e2e8f0'
+						color: '#e2e8f0',
+						textAlign: 'right'
 					}}>
 						{image.date}
 					</span>
