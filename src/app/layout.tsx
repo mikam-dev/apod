@@ -11,6 +11,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(`https://apod.mikam.dev`) || new URL(`http://localhost:${process.env.PORT || 3000}`),
   title: "Astronomy Picture of the Day | apod.mikam.dev",
   description: "This website provides a modernized UI for NASA's extremely popular “Astronomy Picture of the Day”. It is built with NextJS (App Router), React Server Components (RSC), TailwindCSS, TypeScript, and features responsive web design, dynamic routing, and beautiful space photography from the NASA APOD API.",
 };

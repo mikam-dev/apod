@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-// export const runtime = 'edge'
+export const runtime = 'edge'
 
 export const alt = 'Astronomy Picture of the Day'
 export const size = {
@@ -28,7 +28,7 @@ export default async function Image() {
 				<div style={{
 					width: '400px',
 					height: '100%',
-					padding: '36px',
+					padding: '48px',
 					display: 'flex',
 					alignItems: 'center',
 					justifyContent: 'center',
@@ -37,12 +37,13 @@ export default async function Image() {
 				<div style={{
 					width: '800px',
 					height: '100%',
-					padding: '36px',
+					padding: '48px',
 					display: 'flex',
 					alignItems: 'center',
 					justifyContent: 'center',
 				}}>
-					<img src={"https://apod.mikam.dev/rocket.svg"} width={540} height={540} />
+					{/* eslint-disable-next-line */}
+					<img src={"https://apod.mikam.dev/rocket.svg"} width={540} height={540} alt="Astronomy Picture of the Day" />
 				</div>
 			</div>
 		),

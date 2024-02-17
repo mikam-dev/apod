@@ -1,7 +1,7 @@
 import { getImage } from "@/lib/utils";
 import { ImageResponse } from 'next/og';
 
-// export const runtime = 'edge'
+export const runtime = 'edge'
 
 export const alt = 'Astronomy Picture of the Day'
 export const size = {
@@ -18,35 +18,38 @@ export default async function Image({ params }: { params: { date: string } }) {
 		(
 			<div
 				style={{
+					background: 'black',
+					color: 'white',
 					fontFamily: 'Inter',
 					fontSize: 48,
+					fontWeight: 'bold',
 					width: '100%',
 					height: '100%',
 					display: 'flex',
 					alignItems: 'center',
-				}}
-			>
-				<div style={{
-					background: 'black',
-					color: 'white',
-					width: '400px',
-					height: '100%',
-					padding: '36px',
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'center',
-					textAlign: 'right'
-				}}>{image.title}</div>
-				<div style={{
-					width: '800px',
-					height: '100%',
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'center',
 				}}>
+				<div
+					style={{
+						width: '400px',
+						height: '100%',
+						padding: '48px',
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'center',
+						textAlign: 'right'
+					}}>{image.title}</div>
+				<div
+					style={{
+						width: '800px',
+						height: '100%',
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'center',
+					}}>
+					{/* eslint-disable-next-line */}
 					<img src={
 						image.media_type === 'video' ? image.thumbnail_url : image.url
-					} width={800} height={630} />
+					} width={800} height={630} alt={image.title} />
 				</div>
 			</div>
 		),
