@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 import { getImage } from "../actions";
 
-// export const runtime = 'edge'
+export const runtime = 'edge'
 
 export const alt = 'Astronomy Picture of the Day'
 export const size = {
