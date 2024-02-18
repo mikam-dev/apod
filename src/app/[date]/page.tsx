@@ -29,7 +29,7 @@ export default async function Page({ params }: { params: { date: string } }) {
 			<div className="w-full max-w-5xl h-auto flex flex-col bg-muted pb-4 items-center justify-start">
 				<h1 className="w-full p-2 pb-4 bg-primary text-primary-foreground text-4xl font-bold text-center">{image.title}</h1>
 				<h2 className="w-full p-2 bg-accent text-accent-foreground text-lg font-semibold text-center">{format(parseISO(image.date), 'MMMM dd, yyyy')}</h2>
-				<div className="w-full flex flex-col items-center bg-popover text-popover-foreground p-4 lg:rounded-b-xl">
+				<div className="w-full flex flex-col items-center bg-popover text-popover-foreground md:p-4 lg:rounded-b-xl">
 					{image.media_type === 'video' && (
 						<iframe
 							width={560}
@@ -47,7 +47,7 @@ export default async function Page({ params }: { params: { date: string } }) {
 							alt={image.title}
 							width={800}
 							height={450}
-							className={`w-full max-w-4xl h-auto rounded-3xl`}
+							className={`w-full max-w-4xl h-auto rounded-2xl`}
 						/>
 						// <Image
 						// 	src={image.url}
@@ -64,17 +64,17 @@ export default async function Page({ params }: { params: { date: string } }) {
 					)}
 				</div>
 				<div className="w-full p-4 flex flex-col justify-start items-center text-lg text-foreground">
+					{(image.media_type === 'image') && (
+						<Link href={image.hdurl || image.url}>
+							<Button variant="ghost" className="text-sm">View Image</Button>
+						</Link>
+					)}
 					<p className="w-full px-2 max-w-4xl">{image.explanation}</p>
 				</div>
 				<div className="w-full p-4 space-x-2 flex justify-center items-center">
 					<Link href={`/`}>
 						<Button variant="default">Go Back</Button>
 					</Link>
-					{(image.media_type === 'image') && (
-						<Link href={image.hdurl || image.url}>
-							<Button variant="ghost">View Image</Button>
-						</Link>
-					)}
 				</div>
 			</div>
 		</main>
