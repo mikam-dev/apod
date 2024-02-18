@@ -1,4 +1,5 @@
 "use client"
+import { React } from "react";
 import { getImage } from "@/app/actions";
 import { format, parseISO } from "date-fns";
 import Image from 'next/image';
@@ -49,15 +50,17 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 							className={`w-full max-w-xl mb-2 rounded-xl ${isLoading && 'hidden'}`}></iframe>
 					)}
 					{image.media_type === 'image' && (
+					<React.Fragment 
+						onLoad={() => setIsLoading(false)}
+					>
 						<img
-							onLoad={() => setIsLoading(false)}
 							src={image.url}
 							alt="Astronomy picture of the day"
 							width={800}
 							height={450}
-							priority
 							className={`w-full max-w-xl h-auto mb-2 rounded-3xl ${isLoading && 'hidden'}`}
 						/>
+					</React.Fragment>
 					)}
 					{image.copyright && (
 						<caption className={`p-2 font-extralight text-sm ${isLoading && 'hidden'}`}>
