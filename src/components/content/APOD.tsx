@@ -1,7 +1,7 @@
 "use client"
 import { getImage } from "@/app/actions";
 import { format, parseISO } from "date-fns";
-import Image from 'next/image';
+// import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Section from '../layout/Section';
@@ -50,15 +50,7 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 					)}
 					{image.media_type === 'image' && (
 						/* eslint-disable-next-line */
-						// <img
-						// 	onLoad={() => setIsLoading(false)}
-						// 	src={image.url}
-						// 	alt={image.title}
-						// 	width={800}
-						// 	height={450}
-						// 	className={`w-full max-w-xl h-auto mb-2 rounded-3xl ${isLoading && 'hidden'}`}
-						// />
-						<Image
+						<img
 							onLoad={() => setIsLoading(false)}
 							src={image.url}
 							alt={image.title}
@@ -66,6 +58,14 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 							height={450}
 							className={`w-full max-w-xl h-auto mb-2 rounded-3xl ${isLoading && 'hidden'}`}
 						/>
+						// <Image
+						// 	onLoad={() => setIsLoading(false)}
+						// 	src={image.url}
+						// 	alt={image.title}
+						// 	width={800}
+						// 	height={450}
+						// 	className={`w-full max-w-xl h-auto mb-2 rounded-3xl ${isLoading && 'hidden'}`}
+						// />
 					)}
 					{image.copyright && (
 						<caption className={`p-2 font-extralight text-sm ${isLoading && 'hidden'}`}>

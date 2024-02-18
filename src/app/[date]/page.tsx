@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { format, parseISO } from 'date-fns';
 import { Metadata } from 'next';
-import Image from 'next/image';
+// import Image from 'next/image';
 import Link from 'next/link';
 import { getImage } from '../actions';
 
@@ -42,20 +42,20 @@ export default async function Page({ params }: { params: { date: string } }) {
 					)}
 					{image.media_type === 'image' && (
 						/* eslint-disable-next-line */
-						// <img
-						// 	src={image.url}
-						// 	alt={image.title}
-						// 	width={800}
-						// 	height={450}
-						// 	className={`w-full max-w-4xl h-auto rounded-3xl`}
-						// />
-						<Image
+						<img
 							src={image.url}
 							alt={image.title}
 							width={800}
 							height={450}
 							className={`w-full max-w-4xl h-auto rounded-3xl`}
 						/>
+						// <Image
+						// 	src={image.url}
+						// 	alt={image.title}
+						// 	width={800}
+						// 	height={450}
+						// 	className={`w-full max-w-4xl h-auto rounded-3xl`}
+						// />
 					)}
 					{image.copyright && (
 						<caption className={`w-full font-extralight text-sm mt-4 px-2`}>

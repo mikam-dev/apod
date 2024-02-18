@@ -1,5 +1,5 @@
 import { format, parseISO } from "date-fns";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 
 export async function ImageGrid({ images }: { images: APODImage[] }) {
@@ -23,25 +23,25 @@ export async function ImageGrid({ images }: { images: APODImage[] }) {
 							)}
 							{image.media_type === 'image' && (
 								/* eslint-disable-next-line */
-								// <img
-								// 	src={image.url}
-								// 	alt={image.title}
-								// 	width={800}
-								// 	height={450}
-								// 	className={`w-full max-w-xl h-auto mb-2 rounded-xl`}
-								// />
-								<Image
+								<img
 									src={image.url}
 									alt={image.title}
 									width={800}
 									height={450}
 									className={`w-full max-w-xl h-auto mb-2 rounded-xl`}
 								/>
+								// <Image
+								// 	src={image.url}
+								// 	alt={image.title}
+								// 	width={800}
+								// 	height={450}
+								// 	className={`w-full max-w-xl h-auto mb-2 rounded-xl`}
+								// />
 							)}
 							<h3 className="text-xl font-bold my-4">{image.title}</h3>
 							<p className="text-sm text-muted-foreground">{format(parseISO(image.date), 'MMMM dd, yyyy')}</p>
 							<p className="w-full max-h-[120px] text-wrap truncate">
-								{image.explanation.split(' ', 50).join(' ') + '...'}
+								{image.explanation.split(' ', 35).join(' ') + '...'}
 							</p>
 						</div>
 					</Link>
