@@ -32,7 +32,7 @@ export default async function Image({ params }: { params: { date: string } }) {
 						src={
 							image.media_type === 'video' ? image.thumbnail_url : image.url
 						}
-						width={740}
+						width={800}
 						height={630}
 						alt={image.title}
 					/>
