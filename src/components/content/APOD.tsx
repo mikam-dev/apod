@@ -11,12 +11,12 @@ import { DatePicker } from '../ui/date-picker';
 import { Skeleton } from '../ui/skeleton';
 
 export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
-	const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(false);
 	const [image, setImage] = useState<APODImage>(defaultImage);
 	const [date, setDate] = useState(format(new Date(), 'yyyy-MM-dd'));
 
 	useEffect(() => {
-		setIsLoading(true);
+		// setIsLoading(true);
 		getImage(date.toString()).then((image) => {
 			setImage(image);
 		})
