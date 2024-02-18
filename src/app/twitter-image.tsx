@@ -13,40 +13,18 @@ export default async function Image() {
 
 	return new ImageResponse(
 		(
-			<div style={{
-				fontSize: 48,
-				fontWeight: 'bold',
-				background: '#0f172a',
-				color: '#f8fafc',
-				width: '100%',
-				height: '100%',
-				display: 'flex',
-				alignItems: 'center',
-			}}>
-				<div style={{
-					width: '460px',
-					height: '100%',
-					padding: '50px',
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'center',
-					textAlign: 'right'
-				}}>
-					<span>Astronomy Picture of the Day</span>
+			<div tw="flex w-full h-full bg-neutral-900">
+				<div tw="flex flex-col w-1/3 h-full justify-center items-center space-y-8">
+					<span tw="ml-auto mr-8 mt-2 mb-4 text-5xl text-neutral-50 text-right font-bold">
+						{"Astronomy Picture of the Day"}
+					</span>
 				</div>
-				<div style={{
-					width: '740px',
-					height: '100%',
-					padding: '50px',
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'center',
-				}}>
+				<div tw="flex w-2/3 h-full justify-center items-center">
 					{/* eslint-disable-next-line */}
 					<img
-						src={"https://apod.mikam.dev/rocket.svg"}
-						width={500}
-						height={500}
+						src={"https://apod.mikam.dev/location_search_re_ttoj.svg"}
+						width={600}
+						height={600}
 						alt="Astronomy Picture of the Day"
 					/>
 				</div>
