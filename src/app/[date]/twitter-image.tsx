@@ -1,5 +1,5 @@
-import { ImageResponse } from 'next/og';
 import { format, parseISO } from "date-fns";
+import { ImageResponse } from 'next/og';
 import { getImage } from "../actions";
 
 export const runtime = 'edge'
@@ -17,48 +17,16 @@ export default async function Image({ params }: { params: { date: string } }) {
 
 	return new ImageResponse(
 		(
-			<div style={{
-				background: '#0f172a',
-				width: '100%',
-				height: '100%',
-				display: 'flex',
-				alignItems: 'center',
-			}}>
-				<div style={{
-					width: '460px',
-					height: '100%',
-					padding: '48px',
-					display: 'flex',
-					flexDirection: 'column',
-					alignItems: 'center',
-					justifyContent: 'space-around'
-				}}>
-					<div style={{
-						width: '100%',
-						fontSize: 48,
-						fontWeight: 'bold',
-						color: '#f8fafc',
-						textAlign: 'right'
-					}}>
+			<div tw="flex w-full h-full bg-neutral-900">
+				<div tw="flex flex-col w-1/3 h-full justify-center items-center space-y-8">
+					<span tw="ml-auto mr-8 my-2 text-5xl text-neutral-50 font-bold">
 						{image.title}
-					</div>
-					<div style={{
-						width: '100%',
-						fontSize: 36,
-						fontWeight: 'normal',
-						color: '#e2e8f0',
-						textAlign: 'right'
-					}}>
+					</span>
+					<span tw="ml-auto mr-8 my-2 text-3xl text-neutral-200">
 						{format(parseISO(image.date), 'MMMM dd, yyyy')}
-					</div>
+					</span>
 				</div>
-				<div style={{
-					width: '740px',
-					height: '100%',
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'center',
-				}}>
+				<div tw="flex w-2/3 h-full justify-center items-center">
 					{/* eslint-disable-next-line */}
 					<img
 						src={

@@ -1,8 +1,24 @@
 import { Button } from '@/components/ui/button';
 import { format, parseISO } from 'date-fns';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getImage } from '../actions';
+
+export async function generateMetadata(
+	{ params }: { params: { date: string } }
+): Promise<Metadata> {
+	// read route params
+	const date = params.date
+
+	// fetch data
+	const image: APODImage = await getImage(date);
+
+	return {
+		title: image.title,
+		description: image.explanation.split(' ', 20).join(' ') + '...',
+	}
+}
 
 export default async function Page({ params }: { params: { date: string } }) {
 	const { date } = params;
@@ -25,9 +41,17 @@ export default async function Page({ params }: { params: { date: string } }) {
 							className={`w-full max-w-4xl h-auto rounded-xl`}></iframe>
 					)}
 					{image.media_type === 'image' && (
-						<img
+						/* eslint-disable-next-line */
+						// <img
+						// 	src={image.url}
+						// 	alt={image.title}
+						// 	width={800}
+						// 	height={450}
+						// 	className={`w-full max-w-4xl h-auto rounded-3xl`}
+						// />
+						<Image
 							src={image.url}
-							alt="Astronomy picture of the day"
+							alt={image.title}
 							width={800}
 							height={450}
 							className={`w-full max-w-4xl h-auto rounded-3xl`}
@@ -48,7 +72,7 @@ export default async function Page({ params }: { params: { date: string } }) {
 					</Link>
 					{(image.media_type === 'image') && (
 						<Link href={image.hdurl || image.url}>
-							<Button variant="outline">View Image</Button>
+							<Button variant="ghost">View Image</Button>
 						</Link>
 					)}
 				</div>

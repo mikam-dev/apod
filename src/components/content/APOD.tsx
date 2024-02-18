@@ -11,12 +11,12 @@ import { DatePicker } from '../ui/date-picker';
 import { Skeleton } from '../ui/skeleton';
 
 export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
-	const [isLoading, setIsLoading] = useState(false);
+	const [isLoading, setIsLoading] = useState(true);
 	const [image, setImage] = useState<APODImage>(defaultImage);
 	const [date, setDate] = useState(format(new Date(), 'yyyy-MM-dd'));
 
 	useEffect(() => {
-		// setIsLoading(true);
+		setIsLoading(true);
 		getImage(date.toString()).then((image) => {
 			setImage(image);
 		})
@@ -49,9 +49,19 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 							className={`w-full max-w-xl mb-2 rounded-xl ${isLoading && 'hidden'}`}></iframe>
 					)}
 					{image.media_type === 'image' && (
-						<img
+						/* eslint-disable-next-line */
+						// <img
+						// 	onLoad={() => setIsLoading(false)}
+						// 	src={image.url}
+						// 	alt={image.title}
+						// 	width={800}
+						// 	height={450}
+						// 	className={`w-full max-w-xl h-auto mb-2 rounded-3xl ${isLoading && 'hidden'}`}
+						// />
+						<Image
+							onLoad={() => setIsLoading(false)}
 							src={image.url}
-							alt="Astronomy picture of the day"
+							alt={image.title}
 							width={800}
 							height={450}
 							className={`w-full max-w-xl h-auto mb-2 rounded-3xl ${isLoading && 'hidden'}`}

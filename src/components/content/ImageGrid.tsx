@@ -22,9 +22,17 @@ export async function ImageGrid({ images }: { images: APODImage[] }) {
 									className={`w-full max-w-xl mb-2 rounded-xl`}></iframe>
 							)}
 							{image.media_type === 'image' && (
-								<img
+								/* eslint-disable-next-line */
+								// <img
+								// 	src={image.url}
+								// 	alt={image.title}
+								// 	width={800}
+								// 	height={450}
+								// 	className={`w-full max-w-xl h-auto mb-2 rounded-xl`}
+								// />
+								<Image
 									src={image.url}
-									alt="Astronomy picture of the day"
+									alt={image.title}
 									width={800}
 									height={450}
 									className={`w-full max-w-xl h-auto mb-2 rounded-xl`}
@@ -32,7 +40,9 @@ export async function ImageGrid({ images }: { images: APODImage[] }) {
 							)}
 							<h3 className="text-xl font-bold my-4">{image.title}</h3>
 							<p className="text-sm text-muted-foreground">{format(parseISO(image.date), 'MMMM dd, yyyy')}</p>
-							<p className="w-full max-h-[120px] text-wrap truncate">{image.explanation}</p>
+							<p className="w-full max-h-[120px] text-wrap truncate">
+								{image.explanation.split(' ', 50).join(' ') + '...'}
+							</p>
 						</div>
 					</Link>
 				))}
