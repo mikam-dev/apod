@@ -22,12 +22,11 @@ export async function ImageGrid({ images }: { images: APODImage[] }) {
 									className={`w-full max-w-xl mb-2 rounded-xl`}></iframe>
 							)}
 							{image.media_type === 'image' && (
-								<Image
+								<img
 									src={image.url}
 									alt="Astronomy picture of the day"
 									width={800}
 									height={450}
-									priority
 									className={`w-full max-w-xl h-auto mb-2 rounded-xl`}
 								/>
 							)}
