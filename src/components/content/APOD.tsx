@@ -76,7 +76,7 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 
 				<div className="w-full h-auto flex flex-col items-center justify-start md:p-4 md:w-[50%] md:max-w-2xl">
 					{isLoading ? <Skeleton className="w-full max-w-xl min-h-[315px] mb-2 md:rounded-2xl md:h-[75vh]" /> : (
-						<Card className="border-none md:rounded-2xl">
+						<Card className="border-none rounded-2xl mx-4 md:mx-0">
 							<CardHeader>
 								<CardTitle className={`text-center sm:text-3xl md:text-start md:text-4xl lg:text-5xl`}>{image.title}</CardTitle>
 								<CardDescription className="self-center md:self-start">
