@@ -35,7 +35,7 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 				/>
 			</span>
 			<Section rx>
-				<div className="w-full h-auto flex flex-col items-center justify-start pt-4 lg:p-4 lg:pt-0 lg:w-[50%] lg:max-w-2xl">
+				<div className="w-full h-auto flex flex-col items-center justify-start pt-4 lg:p-4 lg:w-[50%] lg:max-w-2xl">
 					{isLoading && <Skeleton className="w-full h-[40vh] mb-2 rounded-none lg:max-w-xl lg:rounded-2xl lg:h-[75vh]" />}
 					{image.media_type === 'video' && (
 						<iframe
@@ -74,7 +74,7 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 					)}
 				</div>
 
-				<div className="w-full h-auto flex flex-col items-center justify-start p-4 lg:w-[50%] lg:max-w-2xl">
+				<div className="w-full h-auto flex flex-col items-center justify-start p-4 pt-0 lg:pt-4 lg:w-[50%] lg:max-w-2xl">
 					{isLoading ? <Skeleton className="w-full h-[50vh] rounded-2xl bg-card mx-4 lg:max-w-xl lg:bg-muted lg:mx-0 lg:h-[75vh]" /> : (
 						<Card className="border-none rounded-2xl">
 							<CardHeader>
