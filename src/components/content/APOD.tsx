@@ -1,5 +1,5 @@
 "use client"
-import { React } from "react";
+import React from "react";
 import { getImage } from "@/app/actions";
 import { format, parseISO } from "date-fns";
 import Image from 'next/image';
