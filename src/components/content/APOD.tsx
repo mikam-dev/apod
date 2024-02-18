@@ -24,7 +24,7 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 
 	return (
 		<>
-			<span className="w-full min-h-fit p-4 flex flex-col items-center justify-center bg-gradient-to-b from-card to-background sm:pt-6 md:pt-8 xl:pt-12">
+			<span className="w-full min-h-fit p-4 flex flex-col items-center justify-center bg-gradient-to-b from-card to-background sm:pt-6 lg:pt-8 xl:pt-12">
 				<h2 className="font-extrabold text-3xl text-center p-2 mb-2 bg-gradient-to-b from-muted-foreground to-foreground inline-block text-transparent bg-clip-text sm:text-4xl md:text-5xl lg:text-6xl">Astronomy Picture of the Day
 				</h2>
 
@@ -35,8 +35,8 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 				/>
 			</span>
 			<Section rx>
-				<div className="w-full h-auto flex flex-col items-center justify-start md:p-4 md:w-[50%] md:max-w-2xl">
-					{isLoading && <Skeleton className="w-full max-w-xl min-h-[45vh] mb-2 rounded-none md:rounded-2xl md:h-[75vh]" />}
+				<div className="w-full h-auto flex flex-col items-center justify-start pt-4 lg:p-4 lg:pt-0 lg:w-[50%] lg:max-w-2xl">
+					{isLoading && <Skeleton className="w-full h-[40vh] mb-2 rounded-none lg:max-w-xl lg:rounded-2xl lg:h-[75vh]" />}
 					{image.media_type === 'video' && (
 						<iframe
 							onLoad={() => setIsLoading(false)}
@@ -46,7 +46,7 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 							title="YouTube video player"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 							allowFullScreen
-							className={`w-full max-w-xl mb-2 md:rounded-2xl ${isLoading && 'hidden'}`}></iframe>
+							className={`w-full mb-2 lg:max-w-xl lg:rounded-2xl ${isLoading && 'hidden'}`}></iframe>
 					)}
 					{image.media_type === 'image' && (
 						/* eslint-disable-next-line */
@@ -56,7 +56,7 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 							alt={image.title}
 							width={800}
 							height={450}
-							className={`w-full max-w-xl h-auto mb-2 md:rounded-2xl ${isLoading && 'hidden'}`}
+							className={`w-full h-auto mb-2 lg:max-w-xl lg:rounded-2xl ${isLoading && 'hidden'}`}
 						/>
 						// <Image
 						// 	onLoad={() => setIsLoading(false)}
@@ -64,7 +64,7 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 						// 	alt={image.title}
 						// 	width={800}
 						// 	height={450}
-						// 	className={`w-full max-w-xl h-auto mb-2 md:rounded-2xl ${isLoading && 'hidden'}`}
+						// 	className={`w-full h-auto mb-2 lg:max-w-xl lg:rounded-2xl ${isLoading && 'hidden'}`}
 						// />
 					)}
 					{image.copyright && (
@@ -74,17 +74,17 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 					)}
 				</div>
 
-				<div className="w-full h-auto flex flex-col items-center justify-start pb-4 md:p-4 md:w-[50%] md:max-w-2xl">
-					{isLoading ? <Skeleton className="w-full max-w-xl min-h-[45vh] rounded-2xl bg-card p-4 mx-4 md:mx-0 md:h-[75vh]" /> : (
-						<Card className="border-none rounded-2xl mx-4 md:mx-0">
+				<div className="w-full h-auto flex flex-col items-center justify-start p-4 lg:w-[50%] lg:max-w-2xl">
+					{isLoading ? <Skeleton className="w-full h-[50vh] rounded-2xl bg-card mx-4 lg:max-w-xl lg:bg-muted lg:mx-0 lg:h-[75vh]" /> : (
+						<Card className="border-none rounded-2xl">
 							<CardHeader>
-								<CardTitle className={`text-center sm:text-3xl md:text-start md:text-4xl lg:text-5xl`}>{image.title}</CardTitle>
-								<CardDescription className="self-center md:self-start">
+								<CardTitle className={`text-center sm:text-3xl lg:text-start md:text-4xl lg:text-5xl`}>{image.title}</CardTitle>
+								<CardDescription className="self-center lg:self-start">
 									{image.date && !isNaN(Date.parse(image.date)) ? format(parseISO(image.date), 'MMMM dd, yyyy') : 'Invalid date'}
 								</CardDescription>
 							</CardHeader>
 							<CardContent>{image.explanation}</CardContent>
-							<CardFooter className="w-full flex justify-center items-center md:justify-start">
+							<CardFooter className="w-full flex justify-center items-center lg:justify-start">
 								<Link href={`/${image.date}`}>
 									<Button variant="default">View page</Button>
 								</Link>

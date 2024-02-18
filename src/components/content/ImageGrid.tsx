@@ -28,19 +28,19 @@ export async function ImageGrid({ images }: { images: APODImage[] }) {
 									alt={image.title}
 									width={800}
 									height={450}
-									className={`w-full max-w-xl h-auto mb-2 rounded-xl`}
+									className={`w-full h-auto mb-2 rounded-xl md:max-w-xl`}
 								/>
 								// <Image
 								// 	src={image.url}
 								// 	alt={image.title}
 								// 	width={800}
 								// 	height={450}
-								// 	className={`w-full max-w-xl h-auto mb-2 rounded-xl`}
+								// 	className={`w-full h-auto mb-2 rounded-xl md:max-w-xl`}
 								// />
 							)}
 							<h3 className="text-xl font-bold my-4">{image.title}</h3>
 							<p className="text-sm text-muted-foreground">{format(parseISO(image.date), 'MMMM dd, yyyy')}</p>
-							<p className="w-full max-h-[120px] text-wrap truncate">
+							<p className="w-full text-wrap">
 								{image.explanation.split(' ', 35).join(' ') + '...'}
 							</p>
 						</div>
