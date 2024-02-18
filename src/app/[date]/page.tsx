@@ -25,12 +25,11 @@ export default async function Page({ params }: { params: { date: string } }) {
 							className={`w-full max-w-4xl h-auto rounded-xl`}></iframe>
 					)}
 					{image.media_type === 'image' && (
-						<Image
+						<img
 							src={image.url}
 							alt="Astronomy picture of the day"
 							width={800}
 							height={450}
-							priority
 							className={`w-full max-w-4xl h-auto rounded-3xl`}
 						/>
 					)}
