@@ -35,8 +35,8 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 				/>
 			</span>
 			<Section rx>
-				<div className="w-full h-auto p-4 flex flex-col items-center justify-start md:w-[50%] md:max-w-2xl">
-					{isLoading && <Skeleton className="w-full max-w-xl min-h-[315px] mb-2 rounded-3xl md:h-[75vh]" />}
+				<div className="w-full h-auto flex flex-col items-center justify-start md:p-4 md:w-[50%] md:max-w-2xl">
+					{isLoading && <Skeleton className="w-full max-w-xl min-h-[315px] mb-2 md:rounded-2xl md:h-[75vh]" />}
 					{image.media_type === 'video' && (
 						<iframe
 							onLoad={() => setIsLoading(false)}
@@ -46,7 +46,7 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 							title="YouTube video player"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 							allowFullScreen
-							className={`w-full max-w-xl mb-2 rounded-xl ${isLoading && 'hidden'}`}></iframe>
+							className={`w-full max-w-xl mb-2 md:rounded-xl ${isLoading && 'hidden'}`}></iframe>
 					)}
 					{image.media_type === 'image' && (
 						/* eslint-disable-next-line */
@@ -56,7 +56,7 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 							alt={image.title}
 							width={800}
 							height={450}
-							className={`w-full max-w-xl h-auto mb-2 rounded-3xl ${isLoading && 'hidden'}`}
+							className={`w-full max-w-xl h-auto mb-2 md:rounded-2xl ${isLoading && 'hidden'}`}
 						/>
 						// <Image
 						// 	onLoad={() => setIsLoading(false)}
@@ -64,7 +64,7 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 						// 	alt={image.title}
 						// 	width={800}
 						// 	height={450}
-						// 	className={`w-full max-w-xl h-auto mb-2 rounded-3xl ${isLoading && 'hidden'}`}
+						// 	className={`w-full max-w-xl h-auto mb-2 md:rounded-2xl ${isLoading && 'hidden'}`}
 						// />
 					)}
 					{image.copyright && (
@@ -74,9 +74,9 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 					)}
 				</div>
 
-				<div className="w-full h-auto p-4 flex flex-col items-center justify-start md:w-[50%] md:max-w-2xl">
-					{isLoading ? <Skeleton className="w-full max-w-xl min-h-[315px] mb-2 rounded-3xl md:h-[75vh]" /> : (
-						<Card className="border-none rounded-3xl">
+				<div className="w-full h-auto flex flex-col items-center justify-start md:p-4 md:w-[50%] md:max-w-2xl">
+					{isLoading ? <Skeleton className="w-full max-w-xl min-h-[315px] mb-2 md:rounded-2xl md:h-[75vh]" /> : (
+						<Card className="border-none md:rounded-2xl">
 							<CardHeader>
 								<CardTitle className={`text-center sm:text-3xl md:text-start md:text-4xl lg:text-5xl`}>{image.title}</CardTitle>
 								<CardDescription className="self-center md:self-start">
@@ -84,12 +84,7 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 								</CardDescription>
 							</CardHeader>
 							<CardContent>{image.explanation}</CardContent>
-							<CardFooter className="w-full space-x-2 flex justify-center items-center md:justify-start">
-								{(image.media_type === 'image') && (
-									<Link href={image.hdurl || image.url}>
-										<Button variant="outline">View Image</Button>
-									</Link>
-								)}
+							<CardFooter className="w-full flex justify-center items-center md:justify-start">
 								<Link href={`/${image.date}`}>
 									<Button variant="default">View page</Button>
 								</Link>
