@@ -19,10 +19,10 @@ export default async function Image({ params }: { params: { date: string } }) {
 		(
 			<div tw="flex w-full h-full bg-neutral-900">
 				<div tw="flex flex-col w-1/3 h-full justify-center items-center space-y-8">
-					<span tw="ml-auto mr-8 my-2 text-4xl text-neutral-50 text-right font-bold">
+					<span tw="ml-auto mr-8 mt-2 mb-4 text-5xl text-neutral-50 text-right font-bold">
 						{image.title}
 					</span>
-					<span tw="ml-auto mr-8 my-2 text-2xl text-neutral-200 text-right">
+					<span tw="ml-auto mr-8 mt-2 text-2xl text-neutral-200 text-right">
 						{format(parseISO(image.date), 'MMMM dd, yyyy')}
 					</span>
 				</div>
