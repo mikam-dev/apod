@@ -49,7 +49,7 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 							className={`w-full max-w-xl mb-2 rounded-xl ${isLoading && 'hidden'}`}></iframe>
 					)}
 					{image.media_type === 'image' && (
-						<Image
+						<img
 							onLoad={() => setIsLoading(false)}
 							src={image.url}
 							alt="Astronomy picture of the day"
