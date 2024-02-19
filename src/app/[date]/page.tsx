@@ -1,8 +1,9 @@
+import Photo from '@/components/content/Photo';
+import Video from '@/components/content/Video';
 import { Button } from '@/components/ui/button';
 import { format, parseISO } from 'date-fns';
 import { ExternalLink } from 'lucide-react';
 import { Metadata } from 'next';
-// import Image from 'next/image';
 import Link from 'next/link';
 import { getImage } from '../actions';
 
@@ -26,37 +27,16 @@ export default async function Page({ params }: { params: { date: string } }) {
 	const image: APODImage = await getImage(date);
 
 	return (
-		<main className="flex flex-col items-center justify-between bg-muted min-h-[100vh] h-fit">
-			<div className="w-full max-w-5xl h-auto flex flex-col bg-muted pb-4 items-center justify-start">
-				<h1 className="w-full p-2 pb-4 bg-primary text-primary-foreground text-4xl font-bold text-center">{image.title}</h1>
-				<h2 className="w-full p-2 bg-accent text-accent-foreground text-lg font-semibold text-center">{format(parseISO(image.date), 'MMMM dd, yyyy')}</h2>
+		<>
+			<article className="w-full max-w-5xl h-auto flex flex-col bg-muted pb-4 items-center justify-start">
+				<h1 className="text-3xl w-full p-2 pb-4 bg-primary text-primary-foreground font-bold text-center sm:text-4xl">{image.title}</h1>
+				<h2 className="w-full p-2 bg-accent text-accent-foreground text-md font-semibold text-center sm:text-lg">{format(parseISO(image.date), 'MMMM dd, yyyy')}</h2>
 				<div className="w-full flex flex-col items-center bg-popover text-popover-foreground lg:p-4 lg:rounded-b-xl">
 					{image.media_type === 'video' && (
-						<iframe
-							width={560}
-							height={315}
-							src={image.url}
-							title="YouTube video player"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-							allowFullScreen
-							className={`w-full max-w-4xl h-auto lg:rounded-xl`}></iframe>
+						<Video title={image.title} url={image.url} className="rounded-none lg:rounded-2xl" />
 					)}
 					{image.media_type === 'image' && (
-						/* eslint-disable-next-line */
-						<img
-							src={image.url}
-							alt={image.title}
-							width={800}
-							height={450}
-							className={`w-full max-w-4xl h-auto lg:rounded-2xl`}
-						/>
-						// <Image
-						// 	src={image.url}
-						// 	alt={image.title}
-						// 	width={800}
-						// 	height={450}
-						// 	className={`w-full max-w-4xl h-auto lg:rounded-2xl`}
-						// />
+						<Photo title={image.title} url={image.url} className="rounded-none lg:rounded-2xl" />
 					)}
 					{image.copyright && (
 						<caption className={`w-full font-extralight text-sm my-4 px-2 lg:mb-0`}>
@@ -69,7 +49,9 @@ export default async function Page({ params }: { params: { date: string } }) {
 						<Link href={image.hdurl || image.url}>
 							<Button variant="outline" className="text-sm pr-2 mb-2">
 								View Image
-								<sup><ExternalLink className="ml-1 p-0 w-3 h-3" /></sup>
+								<sup>
+									<ExternalLink className="ml-1 p-0 w-3 h-3" />
+								</sup>
 							</Button>
 						</Link>
 					)}
@@ -80,7 +62,7 @@ export default async function Page({ params }: { params: { date: string } }) {
 						<Button variant="default">Go Back</Button>
 					</Link>
 				</div>
-			</div>
-		</main>
+			</article>
+		</>
 	)
 }

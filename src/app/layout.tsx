@@ -32,7 +32,9 @@ export default function RootLayout({
         <body className={`${inter.className}`}>
 
           <Header />
-          {children}
+          <main className="flex flex-col items-center justify-center bg-muted min-h-[100vh] h-fit">
+            {children}
+          </main>
           <Footer />
 
           <TailwindIndicator />
