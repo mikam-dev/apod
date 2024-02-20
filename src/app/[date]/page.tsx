@@ -28,9 +28,11 @@ export default async function Page({ params }: { params: { date: string } }) {
 
 	return (
 		<>
+			<>
+				<h1 className="w-full max-w-5xl p-2 pb-4 bg-primary text-primary-foreground text-3xl font-bold text-center sm:text-4xl">{image.title}</h1>
+				<h2 className="w-full max-w-5xl p-2 bg-accent text-accent-foreground text-md font-semibold text-center sm:text-lg">{format(parseISO(image.date), 'MMMM dd, yyyy')}</h2>
+			</>
 			<article className="w-full max-w-5xl h-auto flex flex-col bg-muted pb-4 items-center justify-start">
-				<h1 className="text-3xl w-full p-2 pb-4 bg-primary text-primary-foreground font-bold text-center sm:text-4xl">{image.title}</h1>
-				<h2 className="w-full p-2 bg-accent text-accent-foreground text-md font-semibold text-center sm:text-lg">{format(parseISO(image.date), 'MMMM dd, yyyy')}</h2>
 				<div className="w-full flex flex-col items-center bg-popover text-popover-foreground lg:p-4 lg:rounded-b-xl">
 					{image.media_type === 'video' && (
 						<Video title={image.title} url={image.url} className="rounded-none lg:rounded-2xl" />
