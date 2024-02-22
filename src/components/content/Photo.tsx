@@ -25,7 +25,7 @@ export default function Photo({
 				alt={title}
 				width={800}
 				height={450}
-				className={cn(`w-full max-w-4xl h-auto rounded-2xl animate-in`, className)}
+				className={cn(`w-full max-w-4xl h-auto rounded-2xl`, className)}
 				{...props}
 			/>
 			{/* <Image
@@ -35,7 +35,7 @@ export default function Photo({
 				alt={title}
 				width={800}
 				height={450}
-				className={cn(`w-full max-w-4xl h-auto rounded-2xl animate-in`, className)}
+				className={cn(`w-full max-w-4xl h-auto rounded-2xl`, className)}
 				{...props}
 			/> */}
 		</>
