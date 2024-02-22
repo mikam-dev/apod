@@ -16,7 +16,7 @@ export function Section({
 
 	return (
 		<section className={`flex items-start justify-center w-full min-h-[92vh] bg-gradient-to-b from-background to-muted m-0`}>
-			<div className={cn(`flex ${rx ? 'lg:flex-row-reverse' : 'lg:flex-row'} ${ry ? 'flex-col-reverse' : 'flex-col'} items-start justify-between w-full max-w-6xl m-0 space-y-2 lg:space-x-4 lg:space-y-0`, className)}>
+			<div className={cn(`flex ${rx ? 'md:flex-row-reverse' : 'md:flex-row'} ${ry ? 'flex-col-reverse' : 'flex-col'} items-start justify-evenly w-full max-w-6xl m-0 space-y-2 md:space-y-0`, className)}>
 				{children}
 			</div>
 		</section>
