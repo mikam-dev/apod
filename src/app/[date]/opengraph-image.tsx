@@ -15,6 +15,13 @@ export default async function Image({ params }: { params: { date: string } }) {
 	const { date } = params;
 	const image: APODImage = await getImage(date);
 
+	let ytThumbnail: string | undefined;
+	let ytid: string | undefined;
+	if (image.url.includes('youtube' || 'youtu.be')) {
+		ytid = image.url.split('embed/')[1].split('?')[0];
+		ytThumbnail = `https://i.ytimg.com/vi/${ytid}/hqdefault.jpg`;
+	}
+
 	return new ImageResponse(
 		(
 			<div tw="flex w-full h-full bg-neutral-900">
@@ -30,7 +37,7 @@ export default async function Image({ params }: { params: { date: string } }) {
 					{/* eslint-disable-next-line */}
 					<img
 						src={
-							image.media_type === 'video' ? image.thumbnail_url : image.url
+							image.media_type === 'video' ? ytThumbnail || image.thumbnail_url : image.url
 						}
 						width={800}
 						height={630}

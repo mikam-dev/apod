@@ -15,14 +15,21 @@ export default async function Image({ params }: { params: { date: string } }) {
 	const { date } = params;
 	const image: APODImage = await getImage(date);
 
+	let ytThumbnail: string | undefined;
+	let ytid: string | undefined;
+	if (image.url.includes('youtube' || 'youtu.be')) {
+		ytid = image.url.split('embed/')[1].split('?')[0];
+		ytThumbnail = `https://i.ytimg.com/vi/${ytid}/hqdefault.jpg`;
+	}
+
 	return new ImageResponse(
 		(
 			<div tw="flex w-full h-full bg-neutral-900">
 				<div tw="flex flex-col w-1/3 h-full justify-center items-center space-y-8">
-					<span tw="ml-auto mr-8 my-2 text-4xl text-neutral-50 text-right font-bold">
+					<span tw="ml-auto mr-8 mt-2 mb-4 text-5xl text-neutral-50 text-right font-bold">
 						{image.title}
 					</span>
-					<span tw="ml-auto mr-8 my-2 text-2xl text-neutral-200 text-right">
+					<span tw="ml-auto mr-8 mt-2 text-2xl text-neutral-200 text-right">
 						{format(parseISO(image.date), 'MMMM dd, yyyy')}
 					</span>
 				</div>
@@ -30,7 +37,7 @@ export default async function Image({ params }: { params: { date: string } }) {
 					{/* eslint-disable-next-line */}
 					<img
 						src={
-							image.media_type === 'video' ? image.thumbnail_url : image.url
+							image.media_type === 'video' ? ytThumbnail || image.thumbnail_url : image.url
 						}
 						width={800}
 						height={630}

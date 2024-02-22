@@ -24,9 +24,7 @@ export default function Video({
 	let ytid: string | undefined;
 	if (url.includes('youtube' || 'youtu.be')) {
 		ytid = url.split('embed/')[1].split('?')[0];
-		console.log('ytid: ' + ytid)
 		ytThumbnail = `https://i.ytimg.com/vi/${ytid}/hqdefault.jpg`;
-		console.log('ytThumbnail: ' + ytThumbnail)
 	}
 
 	return (
