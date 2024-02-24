@@ -18,7 +18,7 @@ export async function generateMetadata(
 
 	return {
 		title: image.title,
-		description: image.explanation.split(' ', 20).join(' ') + '...',
+		description: image.explanation,
 	}
 }
 
