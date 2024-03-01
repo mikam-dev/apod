@@ -11,6 +11,7 @@ import {
 	PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./select";
 
 interface DatePickerProps {
 	onDateChange: (date: string) => void
@@ -50,20 +51,37 @@ export function DatePicker({ onDateChange }: DatePickerProps) {
 						{format(parseISO(formattedDate), 'MMMM dd, yyyy')}
 					</Button>
 				</PopoverTrigger>
-				<PopoverContent className="w-auto p-0 shadow">
-					<Calendar
-						mode="single"
-						selected={date}
-						onSelect={(selectedDate) => {
-							if (selectedDate) {
-								setDate(selectedDate);
-							}
-						}}
-						disabled={(date) =>
-							date > new Date() || date < new Date("1995-06-16")
+				<PopoverContent className="w-auto shadow space-y-2 p-2">
+					<Select
+						onValueChange={(value) =>
+							setDate(addDays(new Date(), parseInt(value)))
 						}
-						initialFocus
-					/>
+					>
+						<SelectTrigger>
+							<SelectValue placeholder="Select" />
+						</SelectTrigger>
+						<SelectContent position="popper">
+							<SelectItem value="0">Today</SelectItem>
+							<SelectItem value="1">Tomorrow</SelectItem>
+							<SelectItem value="3">In 3 days</SelectItem>
+							<SelectItem value="7">In a week</SelectItem>
+						</SelectContent>
+					</Select>
+					<div className="rounded-md border">
+						<Calendar
+							mode="single"
+							selected={date}
+							onSelect={(selectedDate) => {
+								if (selectedDate) {
+									setDate(selectedDate);
+								}
+							}}
+							disabled={(date) =>
+								date > new Date() || date < new Date("1995-06-16")
+							}
+							initialFocus
+						/>
+					</div>
 				</PopoverContent>
 			</Popover>
 			<Button

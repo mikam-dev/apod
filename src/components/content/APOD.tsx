@@ -36,14 +36,14 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 				/>
 			</div>
 			<Section rx>
-				<div className="w-full h-auto flex flex-col items-center justify-start pt-4 md:p-4 md:w-[50%] md:max-w-2xl">
-					{isLoading && <Skeleton className="w-full h-[40vh] mb-2 rounded-none md:max-w-xl md:mb-0 md:rounded-2xl md:h-[75vh]" />}
+				<div className="w-full h-auto flex flex-col items-center justify-start p-4 md:pt-4 md:w-[50%] md:max-w-2xl">
+					{isLoading && <Skeleton className="w-full h-[40vh] mb-2 rounded-2xl md:max-w-xl md:mb-0 md:h-[75vh]" />}
 					{image.media_type === 'video' && (
 						<Video
 							onLoad={() => setIsLoading(false)}
 							title={image.title}
 							url={image.url}
-							className={`max-w-5xl mb-2 rounded-none md:mb-0 md:rounded-2xl ${isLoading && 'hidden'}`}
+							className={`max-w-5xl mb-2 rounded-2xl md:mb-0 ${isLoading && 'hidden'}`}
 						/>
 					)}
 					{image.media_type === 'image' && (
@@ -51,12 +51,12 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 							onLoad={() => setIsLoading(false)}
 							title={image.title}
 							url={image.url}
-							className={`max-w-5xl mb-2 rounded-none md:mb-0 md:rounded-2xl ${isLoading && 'hidden'}`}
+							className={`max-w-5xl mb-2 rounded-2xl md:mb-0 ${isLoading && 'hidden'}`}
 						/>
 					)}
 					{image.copyright && (
 						<caption className={`p-2 font-extralight text-sm ${isLoading && 'hidden'}`}>
-							&copy; {image.copyright}
+							<b>Image Credit and Copyright:</b> {image.copyright}
 						</caption>
 					)}
 				</div>

@@ -1,8 +1,8 @@
 "use client"
 import { cn } from "@/lib/utils";
-import { Play } from "lucide-react";
+// import { Play } from "lucide-react";
 import { useState } from 'react';
-import { Button } from "../ui/button";
+// import { Button } from "../ui/button";
 
 export default function Video({
 	title,
@@ -31,19 +31,19 @@ export default function Video({
 		<div
 			className={cn(`w-full max-w-4xl h-auto aspect-video rounded-2xl flex items-center justify-center`, className)}
 		>
-			<div
-				className={cn(`w-full h-full items-center justify-center bg-cover bg-center bg-muted hover:bg-blend-overlay hover:bg-white hover:bg-opacity-10 hover:cursor-pointer`, hide ? 'flex' : 'hidden', className)}
-				style={{
-					backgroundImage: `url(${ytThumbnail || ''})`,
-				}}
-				onClick={() => setHide(false)}
-			>
-				<Button
-					variant="default"
-					className="z-10 aspect-video hover:opacity-20">
-					<Play className="w-8 h-auto" />
-				</Button>
-			</div>
+			{/* // 	<div
+		// 		className={cn(`w-full h-full items-center justify-center bg-cover bg-center bg-muted hover:bg-blend-overlay hover:bg-white hover:bg-opacity-10 hover:cursor-pointer`, hide ? 'flex' : 'hidden', className)}
+		// 		style={{
+		// 			backgroundImage: `url(${ytThumbnail || ''})`,
+		// 		}}
+		// 		onClick={() => setHide(false)}
+		// 	>
+		// 		<Button
+		// 			variant="default"
+		// 			className="z-10 aspect-video hover:opacity-20">
+		// 			<Play className="w-8 h-auto" />
+		// 		</Button>
+		// 	</div> */}
 			<iframe
 				ref={ref}
 				onLoad={onLoad}
@@ -54,7 +54,7 @@ export default function Video({
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 				allowFullScreen
 				className={cn(`w-full h-auto aspect-video`, className)}
-				hidden={hide}
+				// hidden={hide}
 				{...props}>
 			</iframe>
 		</div>
