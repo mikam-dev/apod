@@ -11,7 +11,7 @@ import {
 	PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./select";
+// import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./select";
 
 interface DatePickerProps {
 	onDateChange: (date: string) => void
@@ -52,7 +52,7 @@ export function DatePicker({ onDateChange }: DatePickerProps) {
 					</Button>
 				</PopoverTrigger>
 				<PopoverContent className="w-auto shadow space-y-2 p-2">
-					<Select
+					{/* <Select
 						onValueChange={(value) =>
 							setDate(addDays(new Date(), parseInt(value)))
 						}
@@ -66,7 +66,7 @@ export function DatePicker({ onDateChange }: DatePickerProps) {
 							<SelectItem value="3">In 3 days</SelectItem>
 							<SelectItem value="7">In a week</SelectItem>
 						</SelectContent>
-					</Select>
+					</Select> */}
 					<div className="rounded-md border">
 						<Calendar
 							mode="single"
