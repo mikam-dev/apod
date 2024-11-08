@@ -1,8 +1,8 @@
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { clsx, type ClassValue } from 'clsx'
+import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+	return twMerge(clsx(inputs))
 }
 
 // export const getImage = async (date?: string) => {
@@ -24,7 +24,6 @@ export function cn(...inputs: ClassValue[]) {
 //     console.error(error);
 //   }
 // }
-
 
 // export const getRandomImages = async () => {
 //   const baseUrl = `https://api.nasa.gov/planetary/apod?api_key=${process.env.NEXT_PUBLIC_NASA_API_KEY}`;

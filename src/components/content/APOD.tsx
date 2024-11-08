@@ -29,10 +29,8 @@ export default function APOD({ defaultImage }: { defaultImage: APODImage }) {
 				<h1 className="font-extrabold text-3xl text-center p-2 mb-2 bg-gradient-to-b from-muted-foreground to-foreground inline-block text-transparent bg-clip-text sm:text-4xl md:text-5xl lg:text-6xl">Astronomy Picture of the Day
 				</h1>
 
-				<DatePicker onDateChange={(date: string) => {
-					setDate(date);
-					console.log(date);
-				}}
+				<DatePicker
+					onDateChange={(datePicked: string) => { setDate(datePicked) }}
 				/>
 			</div>
 			<Section rx>
