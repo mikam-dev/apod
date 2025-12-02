@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Live production build deployed at URL: https://mikam-dev--apod.vercel.app/ 
+
 First, run the development server:
 
 ```bash
