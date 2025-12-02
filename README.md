@@ -16,19 +16,20 @@ Live production build: https://mikam-dev--apod.vercel.app/
 - **Utilities:** date-fns for date handling, NASA APOD REST API for data
 
 ## Getting Started
-1. Install dependencies:
+1. Ensure you're running **Node.js 24.x**.
+2. Install dependencies:
    ```bash
    npm install
    ```
-2. Create a `.env.local` file with your NASA API key:
+3. Create a `.env.local` file with your NASA API key:
    ```bash
    NEXT_PUBLIC_NASA_API_KEY=<your_api_key>
    ```
-3. Run the development server:
+4. Run the development server:
    ```bash
    npm run dev
    ```
-4. Open [http://localhost:3000](http://localhost:3000) to view the app.
+5. Open [http://localhost:3000](http://localhost:3000) to view the app.
 
 ## Scripts
 - `npm run dev` – start the development server
